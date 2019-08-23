@@ -1,7 +1,7 @@
 import {Ball} from "./Ball.js";
 
 const BOX = document.getElementById("box");
-const BALL_SIZE = 40;
+const BALL_SIZE = 20;
 const NUM_OF_BALLS = 20;
 
 function getRandPos() {
