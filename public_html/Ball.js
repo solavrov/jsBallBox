@@ -11,6 +11,7 @@ class Ball {
         e.id = id;
         e.style.width = size + "pt";
         e.style.height = size + "pt";
+        e.style.borderRadius = "50%";
         e.style.backgroundColor = color;
         e.style.position = "absolute";
         e.style.left = x + "pt";

@@ -24,12 +24,20 @@ function getRandCol() {
   return color;
 }
 
+function getRandCol2() {
+    var cols = ["red", "blue", "green", "orange", "yellow", "darkblue", 
+        "purple", "cyan", "black", "brown", "pink", "coral", "indigo", "lime", 
+        "deeppink", "magenta", "olive", "royalblue", "maroon", "navy", 
+        "aquamarine", "grey"];
+    return cols[Math.floor(Math.random()*cols.length)];
+}
+
 var balls = new Array();
 
 for (var i = 0; i < NUM_OF_BALLS; i++) {
     var pos = getRandPos();
     var vel = getRandVel(3);
-    var col = getRandCol();
+    var col = getRandCol2();
     var b = new Ball("b" + i, pos[0], pos[1], vel[0], vel[1], col, BALL_SIZE, BOX);
     balls.push(b);
   }
