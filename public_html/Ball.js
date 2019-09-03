@@ -2,6 +2,8 @@ export {Ball};
 
 class Ball {
     constructor(id, x, y, vx, vy, color, size, box) {
+        this.x = x;
+        this.y = y;
         this.vx = vx;
         this.vy = vy;
         this.boxWidth = parseInt(box.style.width);
@@ -23,29 +25,29 @@ class Ball {
     }
     
     move() {
-       var x = Math.round(parseInt(this.obj.style.left) + this.vx);
+       this.x += this.vx;
        var dx = parseInt(this.obj.style.width);
-       var y = Math.round(parseInt(this.obj.style.top) + this.vy);
+       this.y += this.vy;
        var dy = parseInt(this.obj.style.height);
        
-       if (x + dx > this.boxWidth) {
-           x = this.boxWidth - dx;
+       if (this.x + dx > this.boxWidth) {
+           this.x = this.boxWidth - dx;
            this.vx = -this.vx;
        }
-       if (x < 0) {
-           x = 0;
+       if (this.x < 0) {
+           this.x = 0;
            this.vx = -this.vx;
        }
-       if (y + dy > this.boxHeight) {
-           y = this.boxHeight - dy;
+       if (this.y + dy > this.boxHeight) {
+           this.y = this.boxHeight - dy;
            this.vy = -this.vy;
        }
-       if (y < 0) {
-           y = 0;
+       if (this.y < 0) {
+           this.y = 0;
            this.vy = -this.vy;
        }
-       this.obj.style.left = x + "pt";
-       this.obj.style.top = y + "pt";
+       this.obj.style.left = Math.round(this.x) + "pt";
+       this.obj.style.top = Math.round(this.y) + "pt";
     }
     
     start() {
