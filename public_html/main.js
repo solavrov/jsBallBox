@@ -1,12 +1,16 @@
 import {Ball} from "./Ball.js";
 
 const BOX = document.getElementById("box");
-const BALL_SIZE = 20;
-const NUM_OF_BALLS = 20;
+const BALL_SIZE = 30;
+const NUM_OF_BALLS = 30;
+const VEL = 3;
+const FPS = 100;
 
 function getRandPos() {
-    var x = (parseInt(BOX.style.width) - BALL_SIZE) * Math.random();
-    var y = (parseInt(BOX.style.height) - BALL_SIZE) * Math.random();
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    var x = (w - BALL_SIZE) * Math.random();
+    var y = (h - BALL_SIZE) * Math.random();
     return [Math.round(x), Math.round(y)];
 }
 
@@ -36,9 +40,9 @@ var balls = new Array();
 
 for (var i = 0; i < NUM_OF_BALLS; i++) {
     var pos = getRandPos();
-    var vel = getRandVel(3);
+    var vel = getRandVel(VEL);
     var col = getRandCol2();
-    var b = new Ball("b" + i, pos[0], pos[1], vel[0], vel[1], col, BALL_SIZE, BOX);
+    var b = new Ball(pos[0], pos[1], vel[0], vel[1], col, BALL_SIZE, BOX, FPS);
     balls.push(b);
   }
 
